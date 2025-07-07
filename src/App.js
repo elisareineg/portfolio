@@ -34,9 +34,18 @@ function App() {
           <h2 className="hero-subtitle">
             I'm a Fullstack <span className="web-highlight">&lt;Web&gt;</span> Developer
           </h2>
-          <a className="hero-btn" href="#code">
+          <a className="hero-btn" href="#projects">
             Check out my projects &rarr;
           </a>
+          <div className="hero-links">
+            <a href="mailto:elisareine.a.goncalves@gmail.com" className="hero-link">elisareine.a.goncalves@gmail.com</a>
+            <span className="hero-link-divider">|</span>
+            <a href="tel:6043399719" className="hero-link">604-339-9719</a>
+            <span className="hero-link-divider">|</span>
+            <a href="https://linkedin.com/in/elisa-goncalves-079713285" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span className="hero-link-divider">|</span>
+            <a href="https://github.com/elisareineg" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
           <div className="down-arrow">&#8595;</div>
         </div>
       </header>
