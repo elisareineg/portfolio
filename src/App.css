@@ -21,7 +21,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  background: linear-gradient(to bottom, #2d0036 0%, #e75480 100%);
+  background: none;
   position: relative;
   overflow: hidden;
 }
@@ -192,7 +192,7 @@
 }
 
 .navbar-links li a:hover {
-  color: #19f6e8;
+  color: #3498db;
 }
 
 .about-section {
@@ -236,7 +236,7 @@
 .about-icon-outline,
 .about-icon-outline2 {
   position: absolute;
-  border: 2px dashed #19f6e8;
+  border: 2px dashed #3498db;
   border-radius: 18px;
   width: 140px;
   height: 140px;
@@ -269,7 +269,7 @@
 }
 
 .about-title-highlight {
-  background: #19f6e8;
+  background: #3498db;
   color: #fff;
   padding: 0 0.5rem 0.1rem 0.5rem;
   border-radius: 4px;
@@ -280,16 +280,16 @@
   display: inline-block;
   margin-top: 2.2rem;
   padding: 0.8rem 2.2rem;
-  border: 2px solid #19f6e8;
+  border: 2px solid #3498db;
   border-radius: 8px;
-  color: #19f6e8;
+  color: #3498db;
   background: transparent;
   font-size: 1.2rem;
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
 .about-btn:hover {
-  background: #19f6e8;
+  background: #3498db;
   color: #22223b;
 }
 
@@ -311,14 +311,15 @@
   margin: 1.5rem 0 0 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 2.2rem;
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
+  z-index: 2;
 }
 
 .hero-link {
-  color: #7fffd4;
+  color: #3498db;
   text-decoration: none;
   transition: color 0.2s;
   font-weight: 500;
@@ -333,4 +334,102 @@
   font-size: 1.2rem;
   margin: 0 0.2rem;
   user-select: none;
+}
+
+.contact-section {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: none;
+  position: relative;
+  margin-top: 0;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.contact-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2.5rem;
+  z-index: 2;
+  background: none;
+  border-radius: 24px;
+  box-shadow: none;
+  padding: 2.5rem 2rem;
+}
+
+.profile-photo-box {
+  width: 280px;
+  height: 280px;
+  background: #ffd1e3;
+  border: 2px dashed #3498db;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.about-me-box {
+  flex: 1;
+  background: transparent;
+  border-radius: 18px;
+  border: 2px solid #3498db;
+  padding: 2rem 2.5rem;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.about-me-header {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+  .about-me-box {
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+    text-align: center;
+    padding: 1.2rem 1rem;
+  }
+}
+
+body, .App {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #2d0036 0%, #e75480 40%, #ffd1e3 100%);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
