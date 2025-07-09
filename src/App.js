@@ -25,6 +25,11 @@ function getStars(numStars = 150) {
 function App() {
   return (
     <div className="App">
+      <nav className="top-right-nav">
+        <span className="hero-link">Contact</span>
+        <a href="https://linkedin.com/in/elisa-goncalves-079713285" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/elisareineg" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
       <header className="App-header">
         <div className="stars">{getStars(300)}</div>
         <div className="hero-content">
@@ -42,17 +47,15 @@ function App() {
       </header>
       <section id="contact-section" className="contact-section">
         <div className="stars contact-stars">{getStars(200)}</div>
-        <div className="contact-content">
+        <div className="about-columns">
           <div className="profile-photo-box"></div>
           <div className="about-me-box">
-            <h2 className="about-me-header">About Me</h2>
-            {/* About Me content goes here later */}
+            <h2 className="about-me-header about-me-header-left">About Me</h2>
+            <p className="about-me-text about-me-text-left">
+              Hello! I'm Elisa, a computer science student at Queen's University. I have a passion for cybersecurity, web development, and AI. Below are some technologies I have experience with:
+            </p>
+            {/* Technologies list can go here later */}
           </div>
-        </div>
-        <div className="hero-links">
-          <a href="mailto:elisareine.a.goncalves@gmail.com" className="hero-link">elisareine.a.goncalves@gmail.com</a>
-          <a href="https://linkedin.com/in/elisa-goncalves-079713285" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/elisareineg" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </section>
     </div>
