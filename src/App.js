@@ -1,4 +1,7 @@
 import './App.css';
+import { useRef } from 'react';
+import { db } from './firebase';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 function getStars(numStars = 150) {
   const stars = [];
@@ -23,6 +26,28 @@ function getStars(numStars = 150) {
 }
 
 function App() {
+  const form = useRef();
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form.current);
+    const data = {
+      user_name: formData.get('user_name'),
+      user_email: formData.get('user_email'),
+      message: formData.get('message'),
+      to: 'elisareine.a.goncalves@gmail.com',
+      created: Timestamp.now()
+    };
+
+    try {
+      await addDoc(collection(db, "messages"), data);
+      alert('Message sent!');
+      form.current.reset();
+    } catch (err) {
+      alert('Failed to send message.');
+    }
+  };
+
   return (
     <div className="App">
       <nav className="top-right-nav">
@@ -182,33 +207,71 @@ function App() {
         <div className="stars">{getStars(200)}</div>
         <h2 className="portfolio-section-title">EXTRACURRICULARS</h2>
         <div className="portfolio-section-underline"></div>
-        <div className="portfolio-section-content">
-          <ul>
-            <li>
-              <strong>Queen’s Web Development</strong><br/>
-              <em>Co-Chair</em> <span style={{float: 'right'}}>September 2024 - Present</span>
-              <ul>
-                <li>Manage website domain, deployment, and development projects across <strong>20+</strong> teams, while overseeing educational workshops for <strong>60+</strong> students on <strong>React.js, Git, Node.js, MongoDB</strong>, and other developer tools.</li>
-                <li>Lead strategic decision-making, event planning, budget allocation, and grant applications while managing the executive team and overseeing recruitment for a <strong>500+</strong> member community.</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Queen’s Women In Computing</strong><br/>
-              <em>Web Developer</em> <span style={{float: 'right'}}>April 2025 - Present</span>
-              <ul>
-                <li>Lead website updates and feature redesigns using <strong>React, Javascript, Next.js, and Tailwind CSS</strong>, enhancing user experience and interface components.</li>
-                <li>Develop new features through cross-functional teamwork and prototyping UI components in Figma before implementation.</li>
-              </ul>
-            </li>
-            <li>
-              <strong>Queen’s University Computing Students’ Association</strong><br/>
-              <em>Workshop Coordinator</em> <span style={{float: 'right'}}>July 2024 - April 2025</span>
-              <ul>
-                <li>Organized professional development workshops and competitions (e.g., resume, LeetCode, interviews) for <strong>150+</strong> computing students while facilitating workshop materials and resources in collaboration with guest speakers.</li>
-              </ul>
-            </li>
-          </ul>
+        <div className="experience-cards-container">
+          {/* Queen's Web Development */}
+          <div className="experience-card experience-card-vertical">
+            <img src="/qweb-logo-square.png" alt="Queen's Web Development Logo" className="experience-logo experience-logo-vertical" />
+            <div className="experience-role experience-role-vertical">Co-Chair</div>
+            <div className="experience-role experience-role-vertical">Outreach Director</div>
+            <div className="experience-company-under-logo experience-company-vertical"><a href="#" target="_blank" rel="noopener noreferrer">Queen's Web Development</a></div>
+            <div className="experience-desc experience-desc-vertical">Lead strategic decision-making, event planning, finances, and website domain/deployment while managing the executive team and overseeing recruitment for a 500+ member community.</div>
+            <div className="experience-skills-row experience-skills-row-vertical">
+              <span className="experience-skill-bubble">React.js</span>
+              <span className="experience-skill-bubble">Git</span>
+              <span className="experience-skill-bubble">Node.js</span>
+              <span className="experience-skill-bubble">MongoDB</span>
+              <span className="experience-skill-bubble">Javascript</span>
+              <span className="experience-skill-bubble">HTML/CSS</span>
+              <span className="experience-skill-bubble">Deployment</span>
+            </div>
+          </div>
+          {/* Queen's Women In Computing */}
+          <div className="experience-card experience-card-vertical">
+            <img src="/qwic_logo.png" alt="Queen's Women In Computing Logo" className="experience-logo experience-logo-vertical" />
+            <div className="experience-role experience-role-vertical">Web Developer</div>
+            <div className="experience-company-under-logo experience-company-vertical"><a href="#" target="_blank" rel="noopener noreferrer">Queen's Women In Computing</a></div>
+            <div className="experience-desc experience-desc-vertical">Lead website updates and feature redesigns using React, Javascript, Next.js, and Tailwind CSS, enhancing user experience and interface components.</div>
+            <div className="experience-skills-row experience-skills-row-vertical">
+              <span className="experience-skill-bubble">React</span>
+              <span className="experience-skill-bubble">Javascript</span>
+              <span className="experience-skill-bubble">Next.js</span>
+              <span className="experience-skill-bubble">Tailwind CSS</span>
+              <span className="experience-skill-bubble">Figma</span>
+            </div>
+          </div>
+          {/* Queen's University Computing Students' Association */}
+          <div className="experience-card experience-card-vertical">
+            <img src="/COMPSA_logo.jpeg" alt="Queen's University Computing Students' Association Logo" className="experience-logo experience-logo-vertical" />
+            <div className="experience-role experience-role-vertical">Workshop Coordinator</div>
+            <div className="experience-company-under-logo experience-company-vertical"><a href="#" target="_blank" rel="noopener noreferrer">Queen's University Computing Students' Association</a></div>
+            <div className="experience-desc experience-desc-vertical">Organized professional development workshops and competitions for 150+ students, collaborating with guest speakers and managing resources.</div>
+            <div className="experience-skills-row experience-skills-row-vertical">
+              <span className="experience-skill-bubble">Workshops</span>
+              <span className="experience-skill-bubble">Event Planning</span>
+              <span className="experience-skill-bubble">Collaboration</span>
+              <span className="experience-skill-bubble">Professional Development</span>
+            </div>
+          </div>
         </div>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section id="contact" className="portfolio-section">
+        <div className="stars">{getStars(200)}</div>
+        <h2 className="portfolio-section-title">Contact Me</h2>
+        <div className="portfolio-section-underline"></div>
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
+          <label htmlFor="user_name" className="contact-label">Name</label>
+          <input type="text" id="user_name" name="user_name" className="contact-input" required />
+
+          <label htmlFor="user_email" className="contact-label">Email</label>
+          <input type="email" id="user_email" name="user_email" className="contact-input" required />
+
+          <label htmlFor="message" className="contact-label">Message</label>
+          <textarea id="message" name="message" className="contact-textarea" rows={5} required placeholder="Type your message here..."></textarea>
+
+          <button type="submit" className="contact-submit">Send Message</button>
+        </form>
       </section>
     </div>
   );
