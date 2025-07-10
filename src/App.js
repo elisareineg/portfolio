@@ -95,7 +95,7 @@ function App() {
                 <img className="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
               </div>
               <div className="skill-item">
-                <img className="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
+                <img className="skill-icon" src="https://www.svgrepo.com/show/353735/firebase.svg" alt="Firebase" />
               </div>
             </div>
             <div className="skills-bubble-container">
@@ -104,6 +104,104 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE SECTION */}
+      <section className="portfolio-section">
+        <div className="stars">{getStars(200)}</div>
+        <h2 className="portfolio-section-title">EXPERIENCE</h2>
+        <div className="portfolio-section-underline"></div>
+        <div className="experience-cards-container">
+          {/* CrowdStrike */}
+          <div className="experience-card experience-card-vertical">
+            <img src="/crowdstrike_logo.png" alt="CrowdStrike Logo" className="experience-logo experience-logo-vertical" />
+            <div className="experience-role experience-role-vertical">Technical Account Management Launch Intern</div>
+            <div className="experience-company-under-logo experience-company-vertical"><a href="https://www.crowdstrike.com/" target="_blank" rel="noopener noreferrer">CrowdStrike</a></div>
+            <div className="experience-desc experience-desc-vertical">Built a GenAI Cloud assistant and automated documentation for the TAM Cloud Security team, improving workflow efficiency and saving $100k+ annually.</div>
+            <div className="experience-skills-row experience-skills-row-vertical">
+              <span className="experience-skill-bubble">Python</span>
+              <span className="experience-skill-bubble">GenAI</span>
+              <span className="experience-skill-bubble">Salesforce</span>
+              <span className="experience-skill-bubble">Windows Server</span>
+            </div>
+          </div>
+          {/* UofT */}
+          <div className="experience-card experience-card-vertical">
+            <img src="/iatsl_logo.png" alt="IATSL Logo" className="experience-logo experience-logo-vertical" />
+            <div className="experience-role experience-role-vertical">AI/ML Research Intern</div>
+            <div className="experience-company-under-logo experience-company-vertical"><a href="https://www.utoronto.ca/" target="_blank" rel="noopener noreferrer">Intelligent Assistive Technology Lab, UofT</a></div>
+            <div className="experience-desc experience-desc-vertical">Developed ML models to predict AgeTech adoption, achieving 94.5% accuracy and identifying key factors with SHAP analysis.</div>
+            <div className="experience-skills-row experience-skills-row-vertical">
+              <span className="experience-skill-bubble">Python</span>
+              <span className="experience-skill-bubble">scikit-learn</span>
+              <span className="experience-skill-bubble">SHAP</span>
+              <span className="experience-skill-bubble">ML</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS SECTION */}
+      <section className="portfolio-section">
+        <div className="stars">{getStars(200)}</div>
+        <h2 className="portfolio-section-title">PROJECTS</h2>
+        <div className="portfolio-section-underline"></div>
+        <div className="portfolio-section-content">
+          <ul>
+            <li>
+              <strong>Study Buddy AI</strong> | <em>Next.js, React, DynamoDB, AWS IAM, Firebase, Google Cloud, Tailwind CSS, Anthropic API</em><br/>
+              <ul>
+                <li>An AI-powered study platform that generates flashcards and practice quizzes based on user file upload.</li>
+              </ul>
+              <div className="project-screenshot-placeholder">
+                Project Screenshot (add here)
+              </div>
+            </li>
+            <li>
+              <strong>Tamsactions</strong> | <em>Javascript, React.js, Node.js, Typescript, Firebase, Google Cloud, Tailwind CSS, Stripe API</em><br/>
+              <ul>
+                <li>A web application for Queen’s University students to sell their extra TAMs (trade-a-meal credits) in exchange for money at a reduced price.</li>
+              </ul>
+              <div className="project-screenshot-placeholder">
+                Project Screenshot (add here)
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* EXTRACURRICULARS SECTION */}
+      <section className="portfolio-section">
+        <div className="stars">{getStars(200)}</div>
+        <h2 className="portfolio-section-title">EXTRACURRICULARS</h2>
+        <div className="portfolio-section-underline"></div>
+        <div className="portfolio-section-content">
+          <ul>
+            <li>
+              <strong>Queen’s Web Development</strong><br/>
+              <em>Co-Chair</em> <span style={{float: 'right'}}>September 2024 - Present</span>
+              <ul>
+                <li>Manage website domain, deployment, and development projects across <strong>20+</strong> teams, while overseeing educational workshops for <strong>60+</strong> students on <strong>React.js, Git, Node.js, MongoDB</strong>, and other developer tools.</li>
+                <li>Lead strategic decision-making, event planning, budget allocation, and grant applications while managing the executive team and overseeing recruitment for a <strong>500+</strong> member community.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Queen’s Women In Computing</strong><br/>
+              <em>Web Developer</em> <span style={{float: 'right'}}>April 2025 - Present</span>
+              <ul>
+                <li>Lead website updates and feature redesigns using <strong>React, Javascript, Next.js, and Tailwind CSS</strong>, enhancing user experience and interface components.</li>
+                <li>Develop new features through cross-functional teamwork and prototyping UI components in Figma before implementation.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Queen’s University Computing Students’ Association</strong><br/>
+              <em>Workshop Coordinator</em> <span style={{float: 'right'}}>July 2024 - April 2025</span>
+              <ul>
+                <li>Organized professional development workshops and competitions (e.g., resume, LeetCode, interviews) for <strong>150+</strong> computing students while facilitating workshop materials and resources in collaboration with guest speakers.</li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </section>
     </div>

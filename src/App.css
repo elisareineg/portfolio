@@ -624,3 +624,215 @@ body, .App {
     padding: 1rem 1.2rem;
   }
 }
+
+.about-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0;
+  margin-top: 8rem;
+  width: 100%;
+}
+
+.about-option {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.3rem 1.5rem;
+  border-radius: 0.2em;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+}
+
+.about-option-active {
+  background: #3887f6;
+  color: #fff;
+}
+
+.about-option:focus {
+  outline: none;
+}
+
+/* Portfolio Section Styles */
+.portfolio-section {
+  width: 100vw;
+  /* Remove dark background, use transparent to show the pink starry background */
+  background: transparent;
+  padding: 5rem 0 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.portfolio-section-title {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.portfolio-section-underline {
+  width: 260px;
+  height: 10px;
+  background: #7fffd4; /* Use the accent color from the rest of the site */
+  border-radius: 6px;
+  margin-bottom: 2.5rem;
+}
+
+.portfolio-section-content {
+  color: #fff;
+  font-size: 1.25rem;
+  max-width: 900px;
+  width: 90vw;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.portfolio-section-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio-section-content li {
+  margin-bottom: 2.2rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .portfolio-section-title {
+    font-size: 2rem;
+  }
+  .portfolio-section-underline {
+    width: 120px;
+    height: 6px;
+  }
+  .portfolio-section-content {
+    font-size: 1rem;
+  }
+}
+
+.project-screenshot-placeholder {
+  width: 100%;
+  max-width: 500px;
+  height: 180px;
+  border: 2px dashed #7fffd4;
+  border-radius: 12px;
+  margin: 1.5rem 0 2.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  background: rgba(127,255,212,0.07);
+  text-align: center;
+}
+
+.experience-cards-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.experience-card-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 209, 227, 0.18);
+  border-radius: 22px;
+  box-shadow: 0 4px 32px 0 rgba(231, 84, 128, 0.10);
+  min-width: 320px;
+  max-width: 400px;
+  width: 100%;
+  padding: 2.2rem 2rem 2rem 2rem;
+  border: 2px solid #e75480;
+  margin-bottom: 0.5rem;
+}
+
+.experience-logo-vertical {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #fff;
+  border: 1.5px solid #ffd1e3;
+  box-shadow: 0 2px 12px 0 rgba(231, 84, 128, 0.10);
+  margin-bottom: 1.1rem;
+}
+
+.experience-role-vertical {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.experience-company-vertical {
+  text-align: center;
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.experience-company-vertical a {
+  color: #7fffd4;
+  text-decoration: underline;
+}
+
+.experience-desc-vertical {
+  color: #fff;
+  font-size: 1.08rem;
+  text-align: center;
+  margin-bottom: 1.1rem;
+}
+
+.experience-skills-row-vertical {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.experience-skill-bubble {
+  background: #ffd1e3;
+  color: #e75480;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 16px;
+  padding: 0.25rem 1.1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  box-shadow: 0 1px 6px 0 rgba(231, 84, 128, 0.10);
+  border: 1.5px solid #e75480;
+}
+
+@media (max-width: 900px) {
+  .experience-cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .experience-card-vertical {
+    max-width: 95vw;
+    min-width: 0;
+    padding: 1.2rem 1rem 1rem 1rem;
+  }
+  .experience-logo-vertical {
+    width: 90px;
+    height: 90px;
+  }
+}
