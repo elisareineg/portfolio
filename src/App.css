@@ -661,13 +661,19 @@ body, .App {
 /* Portfolio Section Styles */
 .portfolio-section {
   width: 100vw;
-  /* Remove dark background, use transparent to show the pink starry background */
   background: transparent;
   padding: 5rem 0 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-section > *:not(.stars) {
+  position: relative;
+  z-index: 1;
 }
 
 .portfolio-section-title {

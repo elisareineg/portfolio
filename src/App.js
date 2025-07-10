@@ -118,25 +118,31 @@ function App() {
             <img src="/crowdstrike_logo.png" alt="CrowdStrike Logo" className="experience-logo experience-logo-vertical" />
             <div className="experience-role experience-role-vertical">Technical Account Management Launch Intern</div>
             <div className="experience-company-under-logo experience-company-vertical"><a href="https://www.crowdstrike.com/" target="_blank" rel="noopener noreferrer">CrowdStrike</a></div>
-            <div className="experience-desc experience-desc-vertical">Built a GenAI Cloud assistant and automated documentation for the TAM Cloud Security team, improving workflow efficiency and saving $100k+ annually.</div>
+            <div className="experience-desc experience-desc-vertical">Contributed to the development and training of a GenAI Cloud Security Assistant using Python scripts and prompt engineering. Designed automated solutions for tech touch procedures through Salesforce and Gainsight.</div>
             <div className="experience-skills-row experience-skills-row-vertical">
+              <span className="experience-skill-bubble">Cloud Security & Configuration</span>
+              <span className="experience-skill-bubble">Falcon</span>
               <span className="experience-skill-bubble">Python</span>
               <span className="experience-skill-bubble">GenAI</span>
+              <span className="experience-skill-bubble">Account Management</span>
               <span className="experience-skill-bubble">Salesforce</span>
-              <span className="experience-skill-bubble">Windows Server</span>
+              <span className="experience-skill-bubble">Gainsight</span>
             </div>
           </div>
-          {/* UofT */}
+          {/* IATSL */}
           <div className="experience-card experience-card-vertical">
             <img src="/iatsl_logo.png" alt="IATSL Logo" className="experience-logo experience-logo-vertical" />
             <div className="experience-role experience-role-vertical">AI/ML Research Intern</div>
-            <div className="experience-company-under-logo experience-company-vertical"><a href="https://www.utoronto.ca/" target="_blank" rel="noopener noreferrer">Intelligent Assistive Technology Lab, UofT</a></div>
-            <div className="experience-desc experience-desc-vertical">Developed ML models to predict AgeTech adoption, achieving 94.5% accuracy and identifying key factors with SHAP analysis.</div>
+            <div className="experience-company-under-logo experience-company-vertical"><a href="https://www.utoronto.ca/" target="_blank" rel="noopener noreferrer">Intelligent Assistive Technology Lab</a></div>
+            <div className="experience-desc experience-desc-vertical">Built predictive machine learning models to improve technology accessibility for older adults by analyzing adoption patterns and barrier factors. Achieved &gt;90% accuracy in identifying critical factors for elderly technology adoption using SHAP analysis on synthetic data.</div>
             <div className="experience-skills-row experience-skills-row-vertical">
               <span className="experience-skill-bubble">Python</span>
               <span className="experience-skill-bubble">scikit-learn</span>
               <span className="experience-skill-bubble">SHAP</span>
               <span className="experience-skill-bubble">ML</span>
+              <span className="experience-skill-bubble">NumPy</span>
+              <span className="experience-skill-bubble">Pandas</span>
+              <span className="experience-skill-bubble">Jupyter Notebook</span>
             </div>
           </div>
         </div>
