@@ -24,6 +24,7 @@
   background: none;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .hero-title {
@@ -107,20 +108,27 @@
 
 /* Starfield */
 .stars {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
-.star {
+/* Glitter effect: add more small, twinkling dots */
+@keyframes glitter {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+.glitter {
   position: absolute;
-  background: white;
+  background: #fff6fa;
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: glitter 1.5s infinite alternate;
 }
 
 /* Simple CSS Mountains */
@@ -349,6 +357,7 @@
   padding-bottom: 3rem;
   width: 100vw;
   overflow: hidden;
+  z-index: 1;
 }
 
 .contact-stars {
@@ -475,7 +484,7 @@
 
 body, .App {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #2d0036 0%, #e75480 40%, #ffd1e3 100%);
+  background: linear-gradient(to bottom, #2d0036 0%, #a8326e 40%, #e75480 80%, #ffb6d5 100%);
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -669,6 +678,7 @@ body, .App {
   margin: 0;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .portfolio-section > *:not(.stars) {
@@ -843,21 +853,39 @@ body, .App {
   }
 }
 
+/* Ribbon for contact form */
+.contact-form-ribbon {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 110px;
+  height: 32px;
+  background: linear-gradient(135deg, #e75480 60%, #ff6f91 100%);
+  border-radius: 18px 32px 18px 32px;
+  box-shadow: 0 2px 8px 0 rgba(231, 84, 128, 0.18);
+  z-index: 2;
+  transform: rotate(18deg);
+  pointer-events: none;
+  /* No text, just a decorative ribbon */
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255,255,255,0.04);
+  background: #ffd1e3;
   border-radius: 18px;
   padding: 2.5rem 2rem 2rem 2rem;
   max-width: 420px;
   width: 100%;
   margin: 0 auto;
   box-shadow: 0 4px 32px 0 rgba(231, 84, 128, 0.10);
+  border: 2px solid #e75480;
+  position: relative;
 }
 
 .contact-label {
-  color: #fff;
+  color: #e75480;
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 0.4rem;
@@ -869,7 +897,7 @@ body, .App {
   width: 100%;
   padding: 0.7rem 1rem;
   border-radius: 10px;
-  border: 2px solid #ffd1e3;
+  border: 2px solid #e75480;
   background: #fff;
   color: #e75480;
   font-size: 1.1rem;
@@ -896,10 +924,34 @@ body, .App {
   padding: 0.8rem 2.2rem;
   margin-top: 1.2rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
   box-shadow: 0 2px 12px 0 rgba(231, 84, 128, 0.10);
 }
 .contact-submit:hover {
-  background: #7fffd4;
+  background: #fff;
   color: #e75480;
+}
+
+.contact-form-bow {
+  position: absolute;
+  top: -16px;
+  right: -21px;
+  z-index: 2;
+  pointer-events: none;
+  transform: rotate(32deg);
+}
+
+.App, .App-header, .portfolio-section, .contact-section {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  /* Added a small box-shadow for better visibility */
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
 }

@@ -3,12 +3,13 @@ import { useRef } from 'react';
 import { db } from './firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
-function getStars(numStars = 150) {
+function getStars(numStars = 400) {
   const stars = [];
   for (let i = 0; i < numStars; i++) {
     const size = Math.random() * 2 + 1;
     const top = Math.random() * 100;
     const left = Math.random() * 100;
+    const opacity = Math.random() * 0.5 + 0.3; // Random opacity between 0.3 and 0.8
     stars.push(
       <div
         key={i}
@@ -18,6 +19,7 @@ function getStars(numStars = 150) {
           height: `${size}px`,
           top: `${top}%`,
           left: `${left}%`,
+          opacity: opacity,
         }}
       />
     );
@@ -25,6 +27,9 @@ function getStars(numStars = 150) {
   return stars;
 }
 
+// In your App component's render/return:
+// Make sure this is placed in your JSX where you want the stars
+<div className="stars">{getStars(400)}</div>
 function App() {
   const form = useRef();
 
@@ -50,6 +55,7 @@ function App() {
 
   return (
     <div className="App">
+      <div className="stars">{getStars(150)}</div>
       <nav className="top-right-nav">
         <span className="hero-link">Contact</span>
         <a href="https://linkedin.com/in/elisa-goncalves-079713285" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -261,6 +267,20 @@ function App() {
         <h2 className="portfolio-section-title">Contact Me</h2>
         <div className="portfolio-section-underline"></div>
         <form ref={form} onSubmit={sendEmail} className="contact-form">
+          <div className="contact-form-bow" aria-hidden="true">
+            <svg width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 20
+                C 20 0, 0 0, 10 20
+                C 0 40, 20 40, 30 20
+                C 40 0, 60 0, 50 20
+                C 60 40, 40 40, 30 20
+                Z"
+                fill="#e75480"
+                stroke="#e75480"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
           <label htmlFor="user_name" className="contact-label">Name</label>
           <input type="text" id="user_name" name="user_name" className="contact-input" required />
 
