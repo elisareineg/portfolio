@@ -387,8 +387,8 @@
 }
 
 .profile-photo-box {
-  width: 280px;
-  height: 280px;
+  width: 340px;
+  height: 340px;
   background: #ffd1e3;
   border: 2px dashed #3498db;
   border-radius: 18px;
@@ -397,6 +397,9 @@
   justify-content: center;
   margin-top: 0.5rem;
   margin-left: -40px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .about-me-box {
@@ -484,7 +487,7 @@
 
 body, .App {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #2d0036 0%, #a8326e 40%, #e75480 80%, #ffb6d5 100%);
+  background: linear-gradient(to bottom, #2d0036 0%, #a8326e 40%, #e75480 85%, #f78fb3 100%);
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -541,6 +544,14 @@ body, .App {
   justify-content: center;
   margin-top: 0.5rem;
   margin-left: -40px;
+}
+
+.profile-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px 0 rgba(231, 84, 128, 0.10);
 }
 
 @media (max-width: 1200px) {
@@ -752,6 +763,74 @@ body, .App {
   text-align: center;
 }
 
+.project-screenshot-img {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 2.5rem auto 3rem auto;
+  border-radius: 14px;
+  border: 3px solid #ffd1e3;
+  box-shadow: 0 0 96px 24px #ff4fa3, 0 2px 12px 0 rgba(231, 84, 128, 0.18);
+  position: relative;
+}
+
+.project-screenshot-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.project-links-on-image {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 3.2rem;
+  display: flex;
+  gap: 1.1rem;
+  z-index: 3;
+}
+
+.project-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  box-shadow: 0 2px 8px 0 rgba(231, 84, 128, 0.10);
+  border: 1.5px solid #ffd1e3;
+  transition: background 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.project-link-icon:hover {
+  background: #ffd1e3;
+  box-shadow: 0 2px 16px 0 #ff4fa3;
+}
+
+.project-link-icon svg.project-icon-img {
+  width: 90%;
+  height: 90%;
+  display: block;
+  margin: auto;
+  background: none;
+}
+
+/* Ensure the parent of the screenshot is positioned for absolute children */
+.portfolio-section-content li {
+  position: relative;
+}
+
+.project-screenshot-img[alt="Tamsactions Screenshot"] {
+  box-shadow: 0 0 140px 40px #ff4fa3, 0 2px 16px 0 rgba(231, 84, 128, 0.22);
+}
+
+.project-screenshot-img[alt="Study Buddy AI Screenshot"] {
+  box-shadow: 0 0 140px 40px #ff4fa3, 0 2px 16px 0 rgba(231, 84, 128, 0.22);
+}
+
 .experience-cards-container {
   display: flex;
   flex-direction: row;
@@ -954,4 +1033,77 @@ body, .App {
   opacity: 0.8;
   /* Added a small box-shadow for better visibility */
   box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.project-header {
+  margin-bottom: 1.1rem;
+  text-align: center;
+}
+
+.project-header strong {
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 700;
+  margin: 0 auto 0.7rem auto;
+  display: block;
+}
+
+.project-tech-list {
+  color: #7fffd4;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.project-desc {
+  color: #fff;
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+.project-skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-skill-bubble {
+  background: #ffd1e3;
+  color: #e75480;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 16px;
+  padding: 0.25rem 1.1rem;
+  box-shadow: 0 1px 6px 0 rgba(231, 84, 128, 0.10);
+  border: 1.5px solid #e75480;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-link {
+  color: #7fffd4;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #7fffd4;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.project-link:hover {
+  background: #7fffd4;
+  color: #e75480;
 }

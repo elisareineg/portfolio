@@ -70,7 +70,7 @@ function App() {
           <h2 className="hero-subtitle">
             I'm a Fullstack <span className="web-highlight">&lt;Web&gt;</span> Developer
           </h2>
-          <a className="hero-btn" href="#contact-section">
+          <a className="hero-btn" href="#projects-section">
             Check out my projects &rarr;
           </a>
           <div className="down-arrow">&#8595;</div>
@@ -79,11 +79,13 @@ function App() {
       <section id="contact-section" className="contact-section">
         <div className="stars contact-stars">{getStars(200)}</div>
         <div className="about-columns">
-          <div className="profile-photo-box"></div>
+          <div className="profile-photo-box">
+            <img src="/headshot.jpg" alt="Profile" className="profile-photo-img" />
+          </div>
           <div className="about-me-box">
             <h2 className="about-me-header about-me-header-left">About Me</h2>
             <p className="about-me-text about-me-text-left">
-              Hello! I'm Elisa, a computer science student at Queen's University. I have a passion for cybersecurity, web development, and AI. Below are some technologies I have experience with:
+              Hello! I'm Elisa, a computer science student at Queen's University. My biggest passions lie in cybersecurity, web development, and AI. I love challenging myself with solving problems and learning about different skills or obscure topics, especially relating to technology. Below are some tools I have experience with:
             </p>
             <div className="skills-section">
               <div className="skill-item">
@@ -126,7 +128,7 @@ function App() {
                 <img className="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
               </div>
               <div className="skill-item">
-                <img className="skill-icon" src="https://www.svgrepo.com/show/353735/firebase.svg" alt="Firebase" />
+                <img className="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
               </div>
             </div>
             <div className="skills-bubble-container">
@@ -180,28 +182,78 @@ function App() {
       </section>
 
       {/* PROJECTS SECTION */}
-      <section className="portfolio-section">
+      <section id="projects-section" className="portfolio-section">
         <div className="stars">{getStars(200)}</div>
         <h2 className="portfolio-section-title">PROJECTS</h2>
         <div className="portfolio-section-underline"></div>
         <div className="portfolio-section-content">
           <ul>
             <li>
-              <strong>Study Buddy AI</strong> | <em>Next.js, React, DynamoDB, AWS IAM, Firebase, Google Cloud, Tailwind CSS, Anthropic API</em><br/>
-              <ul>
-                <li>An AI-powered study platform that generates flashcards and practice quizzes based on user file upload.</li>
-              </ul>
-              <div className="project-screenshot-placeholder">
-                Project Screenshot (add here)
+              <div className="project-header">
+                <strong>Study Buddy AI</strong>
+                <div className="project-desc">An AI-powered study platform that generates flashcards and practice quizzes based on user file upload.</div>
+              </div>
+              <div className="project-screenshot-container">
+                <img src="/studybuddy_screenshot.png" alt="Study Buddy AI Screenshot" className="project-screenshot-img" />
+                <div className="project-links-on-image">
+                  <a href="https://github.com/elisareineg/studybuddyai" className="project-link-icon" target="_blank" rel="noopener noreferrer">
+                    {/* GitHub SVG icon */}
+                    <svg className="project-icon-img" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.482C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2Z" fill="#181717"/>
+                    </svg>
+                  </a>
+                  <a href="https://studybuddyai-five.vercel.app/studybuddy" className="project-link-icon" target="_blank" rel="noopener noreferrer">
+                    {/* External link SVG icon */}
+                    <svg className="project-icon-img" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 3h7v7m0-7L10 14" stroke="#181717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <rect x="5" y="5" width="14" height="14" rx="2" stroke="#181717" strokeWidth="2"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div className="project-skills-row">
+                <span className="project-skill-bubble">JavaScript</span>
+                <span className="project-skill-bubble">Next.js</span>
+                <span className="project-skill-bubble">React.js</span>
+                <span className="project-skill-bubble">AWS (DynamoDB, IAM)</span>
+                <span className="project-skill-bubble">Firebase</span>
+                <span className="project-skill-bubble">Google Cloud</span>
+                <span className="project-skill-bubble">Tailwind CSS</span>
+                <span className="project-skill-bubble">Anthropic API</span>
               </div>
             </li>
             <li>
-              <strong>Tamsactions</strong> | <em>Javascript, React.js, Node.js, Typescript, Firebase, Google Cloud, Tailwind CSS, Stripe API</em><br/>
-              <ul>
-                <li>A web application for Queen’s University students to sell their extra TAMs (trade-a-meal credits) in exchange for money at a reduced price.</li>
-              </ul>
-              <div className="project-screenshot-placeholder">
-                Project Screenshot (add here)
+              <div className="project-header">
+                <strong>Tamsactions</strong>
+                <div className="project-desc">A web application for Queen's University students to sell their extra TAMs (trade-a-meal credits) in exchange for money at a reduced price.</div>
+              </div>
+              <div className="project-screenshot-container">
+                <img src="/tamsactions_screenshot.png" alt="Tamsactions Screenshot" className="project-screenshot-img" />
+                <div className="project-links-on-image">
+                  <a href="https://github.com/elisareineg/tamsactions_new" className="project-link-icon" target="_blank" rel="noopener noreferrer">
+                    {/* GitHub SVG icon */}
+                    <svg className="project-icon-img" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.482C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2Z" fill="#181717"/>
+                    </svg>
+                  </a>
+                  <a href="https://tamsactions.web.app/" className="project-link-icon" target="_blank" rel="noopener noreferrer">
+                    {/* External link SVG icon */}
+                    <svg className="project-icon-img" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 3h7v7m0-7L10 14" stroke="#181717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <rect x="5" y="5" width="14" height="14" rx="2" stroke="#181717" strokeWidth="2"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div className="project-skills-row">
+                <span className="project-skill-bubble">JavaScript</span>
+                <span className="project-skill-bubble">React.js</span>
+                <span className="project-skill-bubble">Node.js</span>
+                <span className="project-skill-bubble">Typescript</span>
+                <span className="project-skill-bubble">Firebase</span>
+                <span className="project-skill-bubble">Google Cloud</span>
+                <span className="project-skill-bubble">Tailwind CSS</span>
+                <span className="project-skill-bubble">Stripe API</span>
               </div>
             </li>
           </ul>
@@ -254,8 +306,8 @@ function App() {
             <div className="experience-skills-row experience-skills-row-vertical">
               <span className="experience-skill-bubble">Workshops</span>
               <span className="experience-skill-bubble">Event Planning</span>
-              <span className="experience-skill-bubble">Collaboration</span>
-              <span className="experience-skill-bubble">Professional Development</span>
+              <span className="experience-skill-bubble">Budgeting</span>
+              <span className="experience-skill-bubble">Sponsorships</span>
             </div>
           </div>
         </div>

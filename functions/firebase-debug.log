@@ -1,0 +1,73 @@
+[debug] [2025-07-11T19:26:35.875Z] ----------------------------------------------------------------------
+[debug] [2025-07-11T19:26:35.878Z] Command:       /opt/homebrew/Cellar/node/23.11.0/bin/node /opt/homebrew/bin/firebase functions:shell
+[debug] [2025-07-11T19:26:35.878Z] CLI Version:   14.10.0
+[debug] [2025-07-11T19:26:35.878Z] Platform:      darwin
+[debug] [2025-07-11T19:26:35.878Z] Node Version:  v23.11.0
+[debug] [2025-07-11T19:26:35.879Z] Time:          Fri Jul 11 2025 15:26:35 GMT-0400 (Eastern Daylight Time)
+[debug] [2025-07-11T19:26:35.879Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-11T19:26:36.012Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-11T19:26:36.012Z] > authorizing via signed-in user (elisareine.a.goncalves@gmail.com)
+[debug] [2025-07-11T19:26:36.012Z] [iam] checking project elisagoncalves-portfolio for permissions ["firebase.projects.get"]
+[debug] [2025-07-11T19:26:36.013Z] Checked if tokens are valid: false, expires at: 1752180207539
+[debug] [2025-07-11T19:26:36.013Z] Checked if tokens are valid: false, expires at: 1752180207539
+[debug] [2025-07-11T19:26:36.013Z] > refreshing access token with scopes: []
+[debug] [2025-07-11T19:26:36.014Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-07-11T19:26:36.014Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-11T19:26:36.157Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-07-11T19:26:36.157Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-07-11T19:26:36.167Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/elisagoncalves-portfolio:testIamPermissions [none]
+[debug] [2025-07-11T19:26:36.167Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/elisagoncalves-portfolio:testIamPermissions x-goog-quota-user=projects/elisagoncalves-portfolio
+[debug] [2025-07-11T19:26:36.168Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/elisagoncalves-portfolio:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-07-11T19:26:36.449Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/elisagoncalves-portfolio:testIamPermissions 200
+[debug] [2025-07-11T19:26:36.449Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/elisagoncalves-portfolio:testIamPermissions {"permissions":["firebase.projects.get"]}
+[warn] ⚠  functions: Functions Emulator unable to start on port 5000, starting on 5001 instead. {"metadata":{"emulator":{"name":"functions"},"message":"Functions Emulator unable to start on port 5000, starting on 5001 instead."}}
+[debug] [2025-07-11T19:26:36.560Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2025-07-11T19:26:36.624Z] defaultcredentials: writing to file /Users/elisagoncalves/.config/firebase/elisareine_a.goncalves_gmail.com_application_default_credentials.json
+[debug] [2025-07-11T19:26:36.626Z] DEBUG: Setting GAC to /Users/elisagoncalves/.config/firebase/elisareine_a.goncalves_gmail.com_application_default_credentials.json
+[debug] [2025-07-11T19:26:36.626Z] Checked if tokens are valid: true, expires at: 1752265595157
+[debug] [2025-07-11T19:26:36.626Z] Checked if tokens are valid: true, expires at: 1752265595157
+[debug] [2025-07-11T19:26:36.626Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/elisagoncalves-portfolio/adminSdkConfig [none]
+[debug] [2025-07-11T19:26:36.936Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/elisagoncalves-portfolio/adminSdkConfig 200
+[debug] [2025-07-11T19:26:36.937Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/elisagoncalves-portfolio/adminSdkConfig {"projectId":"elisagoncalves-portfolio","storageBucket":"elisagoncalves-portfolio.firebasestorage.app"}
+[debug] [2025-07-11T19:26:36.952Z] [functions] Watching "/Users/elisagoncalves/portfolio-1/functions" for Cloud Functions...
+[debug] [2025-07-11T19:26:36.957Z] Validating nodejs source
+[debug] [2025-07-11T19:26:37.473Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "nodemailer": "^7.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2025-07-11T19:26:37.473Z] Building nodejs source
+[debug] [2025-07-11T19:26:37.473Z] Failed to find version of module node: reached end of search path /Users/elisagoncalves/portfolio-1/functions/node_modules
+[warn] ⚠  functions: Your requested "node" version "22" doesn't match your global version "23". Using node@23 from host. 
+[debug] [2025-07-11T19:26:37.475Z] Could not find functions.yaml. Must use http discovery
+[debug] [2025-07-11T19:26:37.481Z] Found firebase-functions binary at '/Users/elisagoncalves/portfolio-1/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8793
+
+[debug] [2025-07-11T19:26:37.961Z] Got response from /__/functions.yaml {"endpoints":{"notifyNewMessage":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"eventTrigger":{"eventType":"google.cloud.firestore.document.v1.created","eventFilters":{"database":"(default)","namespace":"(default)"},"eventFilterPathPatterns":{"document":"messages/{docId}"},"retry":false},"entryPoint":"notifyNewMessage"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2025-07-11T19:26:41.996Z] [functions] Loaded functions definitions from source: notifyNewMessage.
+[debug] [2025-07-11T19:26:41.997Z] [functions[us-central1-notifyNewMessage]] function ignored because the firestore emulator does not exist or is not running.
+[info] i  functions: Loaded functions: notifyNewMessage 
+[warn] ⚠  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage, eventarc, tasks 
