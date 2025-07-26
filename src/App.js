@@ -57,12 +57,22 @@ function App() {
     <div className="App">
       <div className="stars">{getStars(150)}</div>
       <nav className="top-right-nav">
-        <span className="hero-link">Contact</span>
+        <span className="hero-link" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} style={{ cursor: 'pointer' }}>Contact</span>
         <a href="https://linkedin.com/in/elisa-goncalves-079713285" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://github.com/elisareineg" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
       <header className="App-header">
         <div className="stars">{getStars(300)}</div>
+        <div className="hero-floating-logos">
+          <div className="orbit-container orbit-python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="floating-logo spin-logo" /></div>
+          <div className="orbit-container orbit-js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="floating-logo spin-logo" /></div>
+          <div className="orbit-container orbit-react"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="floating-logo spin-logo" /></div>
+          <div className="orbit-container orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="floating-logo spin-logo" /></div>
+          <div className="orbit-container orbit-java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="floating-logo spin-logo" /></div>
+          <div className="orbit-container orbit-c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" className="floating-logo spin-logo" /></div>
+          <div className="orbit-container orbit-html"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" className="floating-logo spin-logo" /></div>
+          <div className="orbit-container orbit-css"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" className="floating-logo spin-logo" /></div>
+        </div>
         <div className="hero-content">
           <h1 className="hero-title">
             Hello there, I'm Elisa!<span className="blinking-cursor">|</span>
@@ -151,7 +161,7 @@ function App() {
             <img src="/crowdstrike_logo.png" alt="CrowdStrike Logo" className="experience-logo experience-logo-vertical" />
             <div className="experience-role experience-role-vertical">Technical Account Management Launch Intern</div>
             <div className="experience-company-under-logo experience-company-vertical"><a href="https://www.crowdstrike.com/" target="_blank" rel="noopener noreferrer">CrowdStrike</a></div>
-            <div className="experience-desc experience-desc-vertical">Contributed to the development and training of a GenAI Cloud Security Assistant using Python scripts and prompt engineering. Designed automated solutions for tech touch procedures through Salesforce and Gainsight.</div>
+            <div className="experience-desc experience-desc-vertical">Contributed to the development and training of the GenAI Cloud Security Assistant. Designed automated solutions for tech touch procedures through Salesforce and Gainsight.</div>
             <div className="experience-skills-row experience-skills-row-vertical">
               <span className="experience-skill-bubble">Cloud Security & Configuration</span>
               <span className="experience-skill-bubble">Falcon</span>
@@ -191,7 +201,7 @@ function App() {
             <li>
               <div className="project-header">
                 <strong>Study Buddy AI</strong>
-                <div className="project-desc">An AI-powered study platform that generates flashcards and practice quizzes based on user file upload.</div>
+                <div className="project-desc">Study Buddy AI is an AI-powered web application designed to help students study smarter. Upload your notes (PDF, DOCX, or TXT), and Study Buddy AI will automatically generate flashcards and quizzes, making exam prep easier and more effective. The app supports multiple languages, so you can study in English, French, Spanish, or any language your notes are written in.</div>
               </div>
               <div className="project-screenshot-container">
                 <img src="/studybuddy_screenshot.png" alt="Study Buddy AI Screenshot" className="project-screenshot-img" />
@@ -225,7 +235,7 @@ function App() {
             <li>
               <div className="project-header">
                 <strong>Tamsactions</strong>
-                <div className="project-desc">A web application for Queen's University students to sell their extra TAMs (trade-a-meal credits) in exchange for money at a reduced price.</div>
+                <div className="project-desc">Tamsactions is a web application designed for Queen's University students to sell their extra TAMs (trade-a-meal credits) in exchange for money at a reduced price. I created this platform as a means to combat financial insecurity for students surrounding food costs, while reducing waste from unused TAMs.</div>
               </div>
               <div className="project-screenshot-container">
                 <img src="/tamsactions_screenshot.png" alt="Tamsactions Screenshot" className="project-screenshot-img" />
@@ -316,23 +326,17 @@ function App() {
       {/* CONTACT SECTION */}
       <section id="contact" className="portfolio-section">
         <div className="stars">{getStars(200)}</div>
+        <div className="petal-fall-container">
+          {[...Array(18)].map((_, i) => (
+            <svg key={i} className={`rose-petal petal${i % 6}`} width="28" height="32" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2C18 8 28 12 14 30C0 12 10 8 14 2Z" fill="#e75480" fillOpacity="0.85"/>
+            </svg>
+          ))}
+        </div>
         <h2 className="portfolio-section-title">Contact Me</h2>
         <div className="portfolio-section-underline"></div>
+        <div className="contact-message">Feel free to reach out if you'd like to work together, have a question, or just want to chat!</div>
         <form ref={form} onSubmit={sendEmail} className="contact-form">
-          <div className="contact-form-bow" aria-hidden="true">
-            <svg width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M30 20
-                C 20 0, 0 0, 10 20
-                C 0 40, 20 40, 30 20
-                C 40 0, 60 0, 50 20
-                C 60 40, 40 40, 30 20
-                Z"
-                fill="#e75480"
-                stroke="#e75480"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
           <label htmlFor="user_name" className="contact-label">Name</label>
           <input type="text" id="user_name" name="user_name" className="contact-input" required />
 

@@ -1107,3 +1107,124 @@ body, .App {
   background: #7fffd4;
   color: #e75480;
 }
+
+.contact-message {
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  margin-top: -0.5rem;
+  text-align: center;
+}
+
+.hero-floating-logos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.orbit-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+}
+
+.spin-logo {
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.orbit-python { animation: orbit1 10s linear infinite; }
+.orbit-js { animation: orbit2 10s linear infinite 2s; }
+.orbit-react { animation: orbit3 10s linear infinite 4s; }
+.orbit-node { animation: orbit4 10s linear infinite 6s; }
+.orbit-java { animation: orbit5 10s linear infinite 8s; }
+.orbit-c { animation: orbit6 10s linear infinite 3s; }
+.orbit-html { animation: orbit7 10s linear infinite 5s; }
+.orbit-css { animation: orbit8 10s linear infinite 7s; }
+
+.orbit-container .floating-logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes orbit1 {
+  0% { transform: rotate(0deg) translateX(180px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(180px) rotate(-360deg); }
+}
+@keyframes orbit2 {
+  0% { transform: rotate(0deg) translateX(160px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(160px) rotate(-360deg); }
+}
+@keyframes orbit3 {
+  0% { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+}
+@keyframes orbit4 {
+  0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+}
+@keyframes orbit5 {
+  0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+@keyframes orbit6 {
+  0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+@keyframes orbit7 {
+  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+@keyframes orbit8 {
+  0% { transform: rotate(0deg) translateX(170px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(170px) rotate(-360deg); }
+}
+
+.petal-fall-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+}
+
+.rose-petal {
+  position: absolute;
+  opacity: 0.85;
+  pointer-events: none;
+  animation: petal-fall 7s linear infinite;
+}
+
+/* Staggered positions and delays for variety */
+.petal0 { left: 5%; animation-delay: 0s; }
+.petal1 { left: 18%; animation-delay: 1.2s; }
+.petal2 { left: 32%; animation-delay: 2.1s; }
+.petal3 { left: 48%; animation-delay: 0.7s; }
+.petal4 { left: 65%; animation-delay: 2.7s; }
+.petal5 { left: 82%; animation-delay: 1.7s; }
+
+@keyframes petal-fall {
+  0% { top: -40px; opacity: 0.9; transform: rotate(-10deg) scale(1) translateX(0); }
+  20% { opacity: 1; }
+  40% { transform: rotate(8deg) scale(1.05) translateX(20px); }
+  60% { transform: rotate(-12deg) scale(0.98) translateX(-18px); }
+  80% { opacity: 0.85; }
+  100% { top: 100%; opacity: 0.2; transform: rotate(12deg) scale(0.92) translateX(10px); }
+}
