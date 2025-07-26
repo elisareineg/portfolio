@@ -1,7 +1,5 @@
 import './App.css';
 import { useRef } from 'react';
-import { db } from './firebase';
-import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 function getStars(numStars = 400) {
   const stars = [];
@@ -40,16 +38,32 @@ function App() {
       user_name: formData.get('user_name'),
       user_email: formData.get('user_email'),
       message: formData.get('message'),
-      to: 'elisareine.a.goncalves@gmail.com',
-      created: Timestamp.now()
     };
 
+    console.log('Sending email data:', data);
+
     try {
-      await addDoc(collection(db, "messages"), data);
-      alert('Message sent!');
-      form.current.reset();
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      console.log('Response status:', response.status);
+      const result = await response.json();
+      console.log('Response result:', result);
+      
+      if (response.ok) {
+        alert('Message sent!');
+        form.current.reset();
+      } else {
+        alert('Failed to send message: ' + (result.error || 'Unknown error'));
+      }
     } catch (err) {
-      alert('Failed to send message.');
+      console.error('Fetch error:', err);
+      alert('Failed to send message. Please check if the server is running.');
     }
   };
 
@@ -175,8 +189,8 @@ function App() {
           {/* IATSL */}
           <div className="experience-card experience-card-vertical">
             <img src="/iatsl_logo.png" alt="IATSL Logo" className="experience-logo experience-logo-vertical" />
-            <div className="experience-role experience-role-vertical">AI/ML Research Intern</div>
-            <div className="experience-company-under-logo experience-company-vertical"><a href="https://www.utoronto.ca/" target="_blank" rel="noopener noreferrer">Intelligent Assistive Technology Lab</a></div>
+            <div className="experience-role experience-role-vertical">AI/ML Engineer Intern</div>
+            <div className="experience-company-under-logo experience-company-vertical"><a href="https://iatsl.org/" target="_blank" rel="noopener noreferrer">Intelligent Assistive Technology Lab</a></div>
             <div className="experience-desc experience-desc-vertical">Built predictive machine learning models to improve technology accessibility for older adults by analyzing adoption patterns and barrier factors. Achieved &gt;90% accuracy in identifying critical factors for elderly technology adoption using SHAP analysis on synthetic data.</div>
             <div className="experience-skills-row experience-skills-row-vertical">
               <span className="experience-skill-bubble">Python</span>
