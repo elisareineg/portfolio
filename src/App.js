@@ -1,5 +1,5 @@
 import './App.css';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 function getStars(numStars = 400) {
   const stars = [];
@@ -30,9 +30,18 @@ function getStars(numStars = 400) {
 <div className="stars">{getStars(400)}</div>
 function App() {
   const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const sendEmail = async (e) => {
     e.preventDefault();
+    
+    // Prevent multiple submissions
+    if (isSubmitting) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
     const formData = new FormData(form.current);
     const data = {
       user_name: formData.get('user_name'),
@@ -64,6 +73,8 @@ function App() {
     } catch (err) {
       console.error('Fetch error:', err);
       alert('Failed to send message. Please check if the server is running.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -360,7 +371,13 @@ function App() {
           <label htmlFor="message" className="contact-label">Message</label>
           <textarea id="message" name="message" className="contact-textarea" rows={5} required placeholder="Type your message here..."></textarea>
 
-          <button type="submit" className="contact-submit">Send Message</button>
+          <button 
+            type="submit" 
+            className="contact-submit" 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
         </form>
       </section>
     </div>

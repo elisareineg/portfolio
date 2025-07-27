@@ -994,21 +994,29 @@ body, .App {
 }
 
 .contact-submit {
-  background: #e75480;
-  color: #fff;
-  font-size: 1.15rem;
-  font-weight: 600;
+  background: linear-gradient(135deg, #e75480, #c71585);
+  color: white;
   border: none;
-  border-radius: 10px;
-  padding: 0.8rem 2.2rem;
-  margin-top: 1.2rem;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  box-shadow: 0 2px 12px 0 rgba(231, 84, 128, 0.10);
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(231, 84, 128, 0.3);
 }
-.contact-submit:hover {
-  background: #fff;
-  color: #e75480;
+
+.contact-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 84, 128, 0.4);
+}
+
+.contact-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 15px rgba(231, 84, 128, 0.2);
 }
 
 .contact-form-bow {

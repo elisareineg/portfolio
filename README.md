@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Elisa Goncalves - Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A beautiful React portfolio website featuring a starry pink gradient background, animated floating skill logos, and a functional contact form.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Responsive Design** - Works on all devices
+- **Animated Background** - Starry night sky with gradient
+- **Floating Skill Logos** - Orbiting technology icons
+- **Contact Form** - Email functionality with Express.js backend
+- **Professional Sections** - Experience, Projects, Extracurriculars
+- **Modern UI** - Pink gradient theme with smooth animations
 
-### `npm start`
+## 🛠️ Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React.js, CSS3
+- **Backend**: Express.js, Node.js
+- **Email**: Nodemailer with Gmail SMTP
+- **Animations**: CSS keyframes and transforms
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Installation
 
-### `npm test`
+1. **Clone the repository**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/elisareineg/portfolio-1.git
+   cd portfolio-1
+   ```
 
-### `npm run build`
+2. **Install dependencies**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Set up environment variables**
+   Create a `.env` file in the root directory:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=465
+   SMTP_SECURE=true
+   SMTP_USER=your-email@gmail.com
+   SMTP_PASS=your-app-password
+   ```
 
-### `npm run eject`
+4. **Start the development servers**
+   ```bash
+   npm run dev
+   ```
+   This starts both the React app (port 3000) and Express server (port 3001).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🔧 Email Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To enable the contact form functionality:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Enable 2-Factor Authentication** on your Gmail account
+2. **Generate an App Password**:
+   - Go to Google Account Settings → Security → 2-Step Verification
+   - Click "App passwords" → Generate new app password
+   - Select "Mail" and copy the 16-character password
+3. **Add to .env file**:
+   ```
+   SMTP_PASS=your-16-character-app-password
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎨 Customization
 
-## Learn More
+- **Colors**: Update CSS variables in `src/App.css`
+- **Content**: Modify sections in `src/App.js`
+- **Skills**: Add/remove skill logos in the floating animation
+- **Projects**: Update project screenshots and descriptions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📱 Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Home**: Hero section with animated skill logos
+- **About**: Profile photo and skills section
+- **Experience**: Work history in card format
+- **Projects**: Portfolio projects with screenshots
+- **Extracurriculars**: Club and organization involvement
+- **Contact**: Functional email form
 
-### Code Splitting
+## 🔒 Security
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Environment variables are properly ignored by `.gitignore`
+- No sensitive data is committed to the repository
+- Email credentials are stored securely in `.env` file
 
-### Analyzing the Bundle Size
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This project is open source and available under the [MIT License](LICENSE).
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Contact**: elisareine.a.goncalves@gmail.com  
+**LinkedIn**: [Elisa Goncalves](https://linkedin.com/in/elisa-goncalves-079713285)  
+**GitHub**: [elisareineg](https://github.com/elisareineg)
