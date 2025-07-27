@@ -88,16 +88,6 @@ function App() {
       </nav>
       <header className="App-header">
         <div className="stars">{getStars(300)}</div>
-        <div className="hero-floating-logos">
-          <div className="orbit-container orbit-python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="floating-logo spin-logo" /></div>
-          <div className="orbit-container orbit-js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="floating-logo spin-logo" /></div>
-          <div className="orbit-container orbit-react"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="floating-logo spin-logo" /></div>
-          <div className="orbit-container orbit-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="floating-logo spin-logo" /></div>
-          <div className="orbit-container orbit-java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="floating-logo spin-logo" /></div>
-          <div className="orbit-container orbit-c"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" className="floating-logo spin-logo" /></div>
-          <div className="orbit-container orbit-html"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" className="floating-logo spin-logo" /></div>
-          <div className="orbit-container orbit-css"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" className="floating-logo spin-logo" /></div>
-        </div>
         <div className="hero-content">
           <h1 className="hero-title">
             Hello there, I'm Elisa!<span className="blinking-cursor">|</span>
@@ -148,10 +138,10 @@ function App() {
                 <img className="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />
               </div>
               <div className="skill-item">
-                <img className="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />
+                <img className="skill-icon" src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" alt="C" />
               </div>
               <div className="skill-item">
-                <img className="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" />
+                <img className="skill-icon" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" />
               </div>
               <div className="skill-item">
                 <img className="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" />
