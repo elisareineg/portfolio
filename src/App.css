@@ -339,9 +339,9 @@ body {
   padding: 5rem 2rem;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+    flex-direction: column;
   justify-content: center;
-  align-items: center;
+    align-items: center;
 }
 
 .about-columns {
@@ -416,7 +416,41 @@ body {
 .skill-icon {
   width: 40px;
   height: 40px;
-  filter: brightness(0) invert(1);
+  object-fit: contain;
+  background: transparent;
+  display: block;
+}
+
+.aws-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.mysql-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.js-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  display: block;
+}
+
+.html-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.css-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.ts-icon {
+  width: 35px;
+  height: 35px;
 }
 
 .skills-bubble-container {
@@ -553,7 +587,7 @@ body {
 .project-desc {
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 .project-screenshot-container {
@@ -758,7 +792,7 @@ body {
   
   .hero-btn {
     padding: 0.8rem 2rem;
-    font-size: 1rem;
+  font-size: 1rem;
   }
   
   .about-columns {
