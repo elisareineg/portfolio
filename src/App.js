@@ -1,5 +1,5 @@
 import './App.css';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 function getStars(numStars = 400) {
   const stars = [];
@@ -7,7 +7,7 @@ function getStars(numStars = 400) {
     const size = Math.random() * 2 + 1;
     const top = Math.random() * 100;
     const left = Math.random() * 100;
-    const opacity = Math.random() * 0.5 + 0.3; // Random opacity between 0.3 and 0.8
+    const opacity = Math.random() * 0.5 + 0.3;
     stars.push(
       <div
         key={i}
@@ -25,9 +25,28 @@ function getStars(numStars = 400) {
   return stars;
 }
 
-// In your App component's render/return:
-// Make sure this is placed in your JSX where you want the stars
-<div className="stars">{getStars(400)}</div>
+function createParticles() {
+  const particles = [];
+  const particleCount = 50;
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = (
+      <div
+        key={i}
+        className="particle"
+        style={{
+          left: Math.random() * 100 + '%',
+          top: Math.random() * 100 + '%',
+          animationDelay: Math.random() * 6 + 's',
+          animationDuration: (Math.random() * 4 + 4) + 's',
+        }}
+      />
+    );
+    particles.push(particle);
+  }
+  return particles;
+}
+
 function App() {
   const form = useRef();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,7 +54,6 @@ function App() {
   const sendEmail = async (e) => {
     e.preventDefault();
     
-    // Prevent multiple submissions
     if (isSubmitting) {
       return;
     }
@@ -78,38 +96,71 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    // Mouse movement parallax effect
+    const handleMouseMove = (e) => {
+      const mouseX = e.clientX / window.innerWidth;
+      const mouseY = e.clientY / window.innerHeight;
+      
+      const shapes = document.querySelectorAll('.shape');
+      shapes.forEach((shape, index) => {
+        const speed = (index + 1) * 0.5;
+        const x = (mouseX - 0.5) * speed;
+        const y = (mouseY - 0.5) * speed;
+        shape.style.transform = `translate(${x}px, ${y}px) rotate(${x * 2}deg)`;
+      });
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    return () => document.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
     <div className="App">
-      <div className="stars">{getStars(150)}</div>
-      <nav className="top-right-nav">
-        <span className="hero-link" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} style={{ cursor: 'pointer' }}>Contact</span>
-        <a href="https://linkedin.com/in/elisa-goncalves-079713285" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/elisareineg" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </nav>
-      <header className="App-header">
-        <div className="stars">{getStars(300)}</div>
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Hello there, I'm Elisa!<span className="blinking-cursor">|</span>
-          </h1>
-          <h2 className="hero-subtitle">
-            I'm a Fullstack <span className="web-highlight">&lt;Web&gt;</span> Developer
-          </h2>
-          <a className="hero-btn" href="#projects-section">
-            Check out my projects &rarr;
-          </a>
-          <div className="down-arrow">&#8595;</div>
+      {/* Hero Section */}
+      <div className="hero-container">
+        {/* Animated particles background */}
+        <div className="particles">
+          {createParticles()}
         </div>
-      </header>
-      <section id="contact-section" className="contact-section">
-        <div className="stars contact-stars">{getStars(200)}</div>
+        
+        {/* Geometric shapes */}
+        <div className="geometric-bg">
+          <div className="shape shape-1"></div>
+          <div className="shape shape-2"></div>
+          <div className="shape shape-3"></div>
+        </div>
+        
+        {/* Navigation */}
+        <nav className="top-right-nav">
+          <span className="hero-link" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} style={{ cursor: 'pointer' }}>Contact</span>
+          <a href="https://linkedin.com/in/elisa-goncalves-079713285" className="hero-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/elisareineg" className="hero-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+        
+        {/* Main content */}
+        <div className="hero-content">
+          <h1 className="hero-title">Hello there, I'm Elisa!</h1>
+          <p className="hero-subtitle">
+            I'm a <span className="web-highlight">&#123;Computer Science Student&#125;</span> and a <span className="web-highlight">&lt;Fullstack Developer&gt;</span>
+          </p>
+          <a href="#projects-section" className="hero-btn">
+            Check out my projects →
+          </a>
+          <div className="down-arrow" onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}>↓</div>
+        </div>
+      </div>
+
+      {/* About Section */}
+      <section className="contact-section">
+        <div className="stars">{getStars(200)}</div>
         <div className="about-columns">
           <div className="profile-photo-box">
             <img src="/headshot.jpg" alt="Profile" className="profile-photo-img" />
           </div>
           <div className="about-me-box">
-            <h2 className="about-me-header about-me-header-left">About Me</h2>
-            <p className="about-me-text about-me-text-left">
+            <h2 className="about-me-header">About Me</h2>
+            <p className="about-me-text">
               Hello! I'm Elisa, a computer science student at Queen's University. My biggest passions lie in cybersecurity, web development, and AI. I love challenging myself with solving problems and learning about different skills or obscure topics, especially relating to technology. Below are some tools I have experience with:
             </p>
             <div className="skills-section">
@@ -165,19 +216,19 @@ function App() {
         </div>
       </section>
 
-      {/* EXPERIENCE SECTION */}
+      {/* Experience Section */}
       <section className="portfolio-section">
         <div className="stars">{getStars(200)}</div>
         <h2 className="portfolio-section-title">EXPERIENCE</h2>
         <div className="portfolio-section-underline"></div>
         <div className="experience-cards-container">
           {/* CrowdStrike */}
-          <div className="experience-card experience-card-vertical">
-            <img src="/crowdstrike_logo.png" alt="CrowdStrike Logo" className="experience-logo experience-logo-vertical" />
-            <div className="experience-role experience-role-vertical">Technical Account Management Launch Intern</div>
-            <div className="experience-company-under-logo experience-company-vertical"><a href="https://www.crowdstrike.com/" target="_blank" rel="noopener noreferrer">CrowdStrike</a></div>
-            <div className="experience-desc experience-desc-vertical">Contributed to the development and training of the GenAI Cloud Security Assistant. Designed automated solutions for tech touch procedures through Salesforce and Gainsight.</div>
-            <div className="experience-skills-row experience-skills-row-vertical">
+          <div className="experience-card">
+            <img src="/crowdstrike_logo.png" alt="CrowdStrike Logo" className="experience-logo" />
+            <div className="experience-role">Technical Account Management Launch Intern</div>
+            <div className="experience-company-under-logo"><a href="https://www.crowdstrike.com/" target="_blank" rel="noopener noreferrer">CrowdStrike</a></div>
+            <div className="experience-desc">Contributed to the development and training of the GenAI Cloud Security Assistant. Designed automated solutions for tech touch procedures through Salesforce and Gainsight.</div>
+            <div className="experience-skills-row">
               <span className="experience-skill-bubble">Cloud Security & Configuration</span>
               <span className="experience-skill-bubble">Falcon</span>
               <span className="experience-skill-bubble">Python</span>
@@ -188,12 +239,12 @@ function App() {
             </div>
           </div>
           {/* IATSL */}
-          <div className="experience-card experience-card-vertical">
-            <img src="/iatsl_logo.png" alt="IATSL Logo" className="experience-logo experience-logo-vertical" />
-            <div className="experience-role experience-role-vertical">AI/ML Engineer Intern</div>
-            <div className="experience-company-under-logo experience-company-vertical"><a href="https://iatsl.org/" target="_blank" rel="noopener noreferrer">Intelligent Assistive Technology Lab</a></div>
-            <div className="experience-desc experience-desc-vertical">Built predictive machine learning models to improve technology accessibility for older adults by analyzing adoption patterns and barrier factors. Achieved &gt;90% accuracy in identifying critical factors for elderly technology adoption using SHAP analysis on synthetic data.</div>
-            <div className="experience-skills-row experience-skills-row-vertical">
+          <div className="experience-card">
+            <img src="/iatsl_logo.png" alt="IATSL Logo" className="experience-logo" />
+            <div className="experience-role">AI/ML Engineer Intern</div>
+            <div className="experience-company-under-logo"><a href="https://iatsl.org/" target="_blank" rel="noopener noreferrer">Intelligent Assistive Technology Lab</a></div>
+            <div className="experience-desc">Built predictive machine learning models to improve technology accessibility for older adults by analyzing adoption patterns and barrier factors. Achieved &gt;90% accuracy in identifying critical factors for elderly technology adoption using SHAP analysis on synthetic data.</div>
+            <div className="experience-skills-row">
               <span className="experience-skill-bubble">Python</span>
               <span className="experience-skill-bubble">scikit-learn</span>
               <span className="experience-skill-bubble">SHAP</span>
@@ -206,7 +257,7 @@ function App() {
         </div>
       </section>
 
-      {/* PROJECTS SECTION */}
+      {/* Projects Section */}
       <section id="projects-section" className="portfolio-section">
         <div className="stars">{getStars(200)}</div>
         <h2 className="portfolio-section-title">PROJECTS</h2>
@@ -222,13 +273,11 @@ function App() {
                 <img src="/studybuddy_screenshot.png" alt="Study Buddy AI Screenshot" className="project-screenshot-img" />
                 <div className="project-links-on-image">
                   <a href="https://github.com/elisareineg/studybuddyai" className="project-link-icon" target="_blank" rel="noopener noreferrer">
-                    {/* GitHub SVG icon */}
                     <svg className="project-icon-img" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.482C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2Z" fill="#181717"/>
                     </svg>
                   </a>
                   <a href="https://studybuddyai-five.vercel.app/studybuddy" className="project-link-icon" target="_blank" rel="noopener noreferrer">
-                    {/* External link SVG icon */}
                     <svg className="project-icon-img" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M14 3h7v7m0-7L10 14" stroke="#181717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <rect x="5" y="5" width="14" height="14" rx="2" stroke="#181717" strokeWidth="2"/>
@@ -256,13 +305,11 @@ function App() {
                 <img src="/tamsactions_screenshot.png" alt="Tamsactions Screenshot" className="project-screenshot-img" />
                 <div className="project-links-on-image">
                   <a href="https://github.com/elisareineg/tamsactions_new" className="project-link-icon" target="_blank" rel="noopener noreferrer">
-                    {/* GitHub SVG icon */}
                     <svg className="project-icon-img" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .268.18.58.688.482C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2Z" fill="#181717"/>
                     </svg>
                   </a>
                   <a href="https://tamsactions.web.app/" className="project-link-icon" target="_blank" rel="noopener noreferrer">
-                    {/* External link SVG icon */}
                     <svg className="project-icon-img" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M14 3h7v7m0-7L10 14" stroke="#181717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       <rect x="5" y="5" width="14" height="14" rx="2" stroke="#181717" strokeWidth="2"/>
@@ -285,20 +332,20 @@ function App() {
         </div>
       </section>
 
-      {/* EXTRACURRICULARS SECTION */}
+      {/* Extracurriculars Section */}
       <section className="portfolio-section">
         <div className="stars">{getStars(200)}</div>
         <h2 className="portfolio-section-title">EXTRACURRICULARS</h2>
         <div className="portfolio-section-underline"></div>
         <div className="experience-cards-container">
           {/* Queen's Web Development */}
-          <div className="experience-card experience-card-vertical">
-            <img src="/qweb-logo-square.png" alt="Queen's Web Development Logo" className="experience-logo experience-logo-vertical" />
-            <div className="experience-role experience-role-vertical">Co-Chair</div>
-            <div className="experience-role experience-role-vertical">Outreach Director</div>
-            <div className="experience-company-under-logo experience-company-vertical"><a href="#" target="_blank" rel="noopener noreferrer">Queen's Web Development</a></div>
-            <div className="experience-desc experience-desc-vertical">Lead strategic decision-making, event planning, finances, and website domain/deployment while managing the executive team and overseeing recruitment for a 500+ member community.</div>
-            <div className="experience-skills-row experience-skills-row-vertical">
+          <div className="experience-card">
+            <img src="/qweb-logo-square.png" alt="Queen's Web Development Logo" className="experience-logo" />
+            <div className="experience-role">Co-Chair</div>
+            <div className="experience-role">Outreach Director</div>
+            <div className="experience-company-under-logo"><a href="#" target="_blank" rel="noopener noreferrer">Queen's Web Development</a></div>
+            <div className="experience-desc">Lead strategic decision-making, event planning, finances, and website domain/deployment while managing the executive team and overseeing recruitment for a 500+ member community.</div>
+            <div className="experience-skills-row">
               <span className="experience-skill-bubble">React.js</span>
               <span className="experience-skill-bubble">Git</span>
               <span className="experience-skill-bubble">Node.js</span>
@@ -309,12 +356,12 @@ function App() {
             </div>
           </div>
           {/* Queen's Women In Computing */}
-          <div className="experience-card experience-card-vertical">
-            <img src="/qwic_logo.png" alt="Queen's Women In Computing Logo" className="experience-logo experience-logo-vertical" />
-            <div className="experience-role experience-role-vertical">Web Developer</div>
-            <div className="experience-company-under-logo experience-company-vertical"><a href="#" target="_blank" rel="noopener noreferrer">Queen's Women In Computing</a></div>
-            <div className="experience-desc experience-desc-vertical">Lead website updates and feature redesigns using React, Javascript, Next.js, and Tailwind CSS, enhancing user experience and interface components.</div>
-            <div className="experience-skills-row experience-skills-row-vertical">
+          <div className="experience-card">
+            <img src="/qwic_logo.png" alt="Queen's Women In Computing Logo" className="experience-logo" />
+            <div className="experience-role">Web Developer</div>
+            <div className="experience-company-under-logo"><a href="#" target="_blank" rel="noopener noreferrer">Queen's Women In Computing</a></div>
+            <div className="experience-desc">Lead website updates and feature redesigns using React, Javascript, Next.js, and Tailwind CSS, enhancing user experience and interface components.</div>
+            <div className="experience-skills-row">
               <span className="experience-skill-bubble">React</span>
               <span className="experience-skill-bubble">Javascript</span>
               <span className="experience-skill-bubble">Next.js</span>
@@ -323,12 +370,12 @@ function App() {
             </div>
           </div>
           {/* Queen's University Computing Students' Association */}
-          <div className="experience-card experience-card-vertical">
-            <img src="/COMPSA_logo.jpeg" alt="Queen's University Computing Students' Association Logo" className="experience-logo experience-logo-vertical" />
-            <div className="experience-role experience-role-vertical">Workshop Coordinator</div>
-            <div className="experience-company-under-logo experience-company-vertical"><a href="#" target="_blank" rel="noopener noreferrer">Queen's University Computing Students' Association</a></div>
-            <div className="experience-desc experience-desc-vertical">Organized professional development workshops and competitions for 150+ students, collaborating with guest speakers and managing resources.</div>
-            <div className="experience-skills-row experience-skills-row-vertical">
+          <div className="experience-card">
+            <img src="/COMPSA_logo.jpeg" alt="Queen's University Computing Students' Association Logo" className="experience-logo" />
+            <div className="experience-role">Workshop Coordinator</div>
+            <div className="experience-company-under-logo"><a href="#" target="_blank" rel="noopener noreferrer">Queen's University Computing Students' Association</a></div>
+            <div className="experience-desc">Organized professional development workshops and competitions for 150+ students, collaborating with guest speakers and managing resources.</div>
+            <div className="experience-skills-row">
               <span className="experience-skill-bubble">Workshops</span>
               <span className="experience-skill-bubble">Event Planning</span>
               <span className="experience-skill-bubble">Budgeting</span>
@@ -338,7 +385,7 @@ function App() {
         </div>
       </section>
 
-      {/* CONTACT SECTION */}
+      {/* Contact Section */}
       <section id="contact" className="portfolio-section">
         <div className="stars">{getStars(200)}</div>
         <div className="petal-fall-container">
