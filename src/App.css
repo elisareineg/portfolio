@@ -9,20 +9,24 @@
 body {
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  background: #0f0f23;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+  min-height: 100vh;
+  background-attachment: fixed;
 }
 
 .App {
   text-align: center;
   position: relative;
   min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+  background-attachment: fixed;
 }
 
 /* Hero Container */
 .hero-container {
   position: relative;
   height: 100vh;
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+  background: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,54 +65,65 @@ body {
   }
 }
 
-/* Floating geometric shapes */
+/* Floating tech icons background */
 .geometric-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.1;
+  opacity: 0.15;
   z-index: 1;
 }
 
-.shape {
+.tech-icon {
   position: absolute;
-  background: linear-gradient(45deg, #64ffda, #bb86fc);
-  animation: rotate 15s linear infinite;
+  width: 60px;
+  height: 60px;
+  opacity: 0.6;
+  filter: brightness(0.8) contrast(0.8);
+  animation: float 8s ease-in-out infinite;
 }
 
-.shape-1 {
-  width: 80px;
-  height: 80px;
-  top: 20%;
-  left: 15%;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+.tech-icon-1 {
+  top: 15%;
+  left: 10%;
   animation-delay: 0s;
 }
 
-.shape-2 {
-  width: 60px;
-  height: 60px;
+.tech-icon-2 {
+  top: 25%;
+  right: 15%;
+  animation-delay: -2s;
+}
+
+.tech-icon-3 {
   top: 60%;
   right: 20%;
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  animation-delay: -5s;
+  animation-delay: -4s;
 }
 
-.shape-3 {
-  width: 100px;
-  height: 100px;
-  top: 10%;
+.tech-icon-4 {
+  bottom: 20%;
+  left: 15%;
+  animation-delay: -6s;
+}
+
+.tech-icon-5 {
+  bottom: 30%;
   right: 10%;
-  clip-path: circle(40%);
-  animation-delay: -10s;
+  animation-delay: -8s;
 }
 
-@keyframes rotate {
-  from { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.2); }
-  to { transform: rotate(360deg) scale(1); }
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.6; 
+  }
+  50% { 
+    transform: translateY(-15px) rotate(5deg); 
+    opacity: 0.8; 
+  }
 }
 
 /* Navigation */
@@ -150,7 +165,7 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, #ffffff 0%, #64ffda 50%, #bb86fc 100%);
@@ -165,11 +180,18 @@ body {
   margin-bottom: 3rem;
   line-height: 1.6;
   animation: fadeInUp 1s ease-out 0.2s both;
-  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, #64ffda 0%, #bb86fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .web-highlight {
-  color: #64ffda;
+  background: linear-gradient(135deg, #64ffda 0%, #bb86fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
 }
@@ -283,7 +305,7 @@ body {
 .portfolio-section {
   position: relative;
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  background: none;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -313,7 +335,7 @@ body {
 
 /* About section */
 .contact-section {
-  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  background: none;
   padding: 5rem 2rem;
   min-height: 100vh;
   display: flex;

@@ -102,12 +102,12 @@ function App() {
       const mouseX = e.clientX / window.innerWidth;
       const mouseY = e.clientY / window.innerHeight;
       
-      const shapes = document.querySelectorAll('.shape');
-      shapes.forEach((shape, index) => {
-        const speed = (index + 1) * 0.5;
+      const techIcons = document.querySelectorAll('.tech-icon');
+      techIcons.forEach((icon, index) => {
+        const speed = (index + 1) * 0.3;
         const x = (mouseX - 0.5) * speed;
         const y = (mouseY - 0.5) * speed;
-        shape.style.transform = `translate(${x}px, ${y}px) rotate(${x * 2}deg)`;
+        icon.style.transform = `translate(${x}px, ${y}px) rotate(${x * 1}deg)`;
       });
     };
 
@@ -124,11 +124,49 @@ function App() {
           {createParticles()}
         </div>
         
-        {/* Geometric shapes */}
+        {/* Programming language logos background */}
         <div className="geometric-bg">
-          <div className="shape shape-1"></div>
-          <div className="shape shape-2"></div>
-          <div className="shape shape-3"></div>
+          {/* JavaScript Logo */}
+          <svg className="tech-icon tech-icon-1" viewBox="0 0 256 256" fill="none">
+            <rect width="256" height="256" fill="#F7DF1E"/>
+            <path d="M67 213L143 213C153 213 163 206 163 192L163 123L133 123L133 190C133 196 130 199 125 199L67 199L67 213Z" fill="#000"/>
+            <path d="M171 199L196 199C206 199 213 194 213 185C213 176 206 171 196 171L186 171L186 141L213 141C223 141 230 136 230 127C230 118 223 113 213 113L156 113L156 199L171 199Z" fill="#000"/>
+          </svg>
+          
+          {/* Python Logo */}
+          <svg className="tech-icon tech-icon-2" viewBox="0 0 256 256" fill="none">
+            <defs>
+              <linearGradient id="python-gradient-1" x1="12.96%" y1="12.76%" x2="79.39%" y2="78.18%">
+                <stop offset="0%" stopColor="#387EB8"/>
+                <stop offset="100%" stopColor="#366994"/>
+              </linearGradient>
+              <linearGradient id="python-gradient-2" x1="19.13%" y1="20.59%" x2="90.14%" y2="85.69%">
+                <stop offset="0%" stopColor="#FFE052"/>
+                <stop offset="100%" stopColor="#FFC331"/>
+              </linearGradient>
+            </defs>
+            <path d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z" fill="url(#python-gradient-1)"/>
+            <path d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.519 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.131 11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13z" fill="url(#python-gradient-2)"/>
+          </svg>
+          
+          {/* Java Logo */}
+          <svg className="tech-icon tech-icon-3" viewBox="0 0 256 346" fill="none">
+            <path d="M82.554 267.473s-13.198 7.675 9.393 10.272c27.369 3.122 41.356 2.675 71.517-3.034 0 0 7.93 4.972 19.001 9.279-67.665 28.977-153.219-1.679-99.911-16.517z" fill="#5382A1"/>
+            <path d="M74.292 229.659s-14.803 10.958 7.805 13.296c29.236 3.018 52.324 3.263 92.276-4.43 0 0 5.526 5.602 14.215 8.666-81.747 23.904-172.798 1.885-114.296-17.532z" fill="#5382A1"/>
+            <path d="M143.942 165.515c16.66 19.18-4.377 36.44-4.377 36.44s42.301-21.837 22.874-49.183c-18.144-25.567-32.041-38.293 43.228-82.098 0 0-118.238 29.53-61.725 94.841z" fill="#E76F00"/>
+            <path d="M233.364 295.442s9.767 8.047-10.761 14.273c-39.056 11.827-162.432 15.396-196.714.471-12.323-5.36 10.787-12.8 18.056-14.362 7.581-1.644 11.914-1.346 11.914-1.346-13.705-9.655-88.583 18.957-38.034 27.15 137.853 22.356 251.292-10.066 215.539-26.186z" fill="#5382A1"/>
+          </svg>
+          
+          {/* HTML5 Logo */}
+          <svg className="tech-icon tech-icon-4" viewBox="0 0 256 361" fill="none">
+            <path d="m23.377 0 20.946 234.379 93.964 26.063 94.209-26.062L253.582 0H23.377zm75.52 58.198h93.127l-6.383 71.518H85.397l6.5 72.847h90.207l-6.383 71.518-60.358 16.745-60.113-16.745-4.11-46.047h29.466l2.087 23.523 32.670 8.808.245-.069 32.671-8.739L148.35 232.73H64.802l-19.252-215.61h93.617l-.27 41.078z" fill="#E34F26"/>
+            <path d="M128 26.362h121.657l-18.062 202.015L128 254.439V26.362zM128 110.97v62.284h86.336l-8.17 91.512L128 254.439v-26.063l60.358-16.745 6.383-71.518H128z" fill="#EF652A"/>
+          </svg>
+          
+          {/* CSS3 Logo */}
+          <svg className="tech-icon tech-icon-5" viewBox="0 0 256 361" fill="none">
+            <path d="m23.377 0 20.946 234.379 93.964 26.063 94.209-26.062L253.582 0H23.377zm189.318 76.91c-.79 8.766-2.04 19.581-3.467 31.319l-.863 7.128H127.89v29.264h67.888l-2.675 29.827H127.89v29.939h63.567l-4.675 52.745L128 271.58l-.035.01-58.782-16.348-4.02-45.079h28.802l2.044 22.888L128 244.58l.02-.006 31.99-8.62 3.322-37.204h-68.93l-8.677-97.68-.897-10.05h132.07l-2.683 29.939H91.738l2.683 30.02H210.13l-2.435 26.027z" fill="#1572B6"/>
+          </svg>
         </div>
         
         {/* Navigation */}
@@ -388,13 +426,6 @@ function App() {
       {/* Contact Section */}
       <section id="contact" className="portfolio-section">
         <div className="stars">{getStars(200)}</div>
-        <div className="petal-fall-container">
-          {[...Array(18)].map((_, i) => (
-            <svg key={i} className={`rose-petal petal${i % 6}`} width="28" height="32" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14 2C18 8 28 12 14 30C0 12 10 8 14 2Z" fill="#e75480" fillOpacity="0.85"/>
-            </svg>
-          ))}
-        </div>
         <h2 className="portfolio-section-title">Contact Me</h2>
         <div className="portfolio-section-underline"></div>
         <div className="contact-message">Feel free to reach out if you'd like to work together, have a question, or just want to chat!</div>
