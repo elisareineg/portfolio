@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/contact.js": {
+      "maxDuration": 10
+    },
+    "api/test.js": {
+      "maxDuration": 10
+    }
+  }
+}
