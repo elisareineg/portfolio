@@ -68,6 +68,8 @@ function App() {
     };
 
     try {
+      console.log('Sending data:', data);
+      console.log('Making request to /api/contact...');
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -76,11 +78,15 @@ function App() {
         body: JSON.stringify(data),
       });
 
+      console.log('Response status:', response.status);
+      const result = await response.json();
+      console.log('Response:', result);
+
       if (response.ok) {
         alert('Message sent successfully! I\'ll get back to you soon.');
         form.current.reset();
       } else {
-        alert('Failed to send message. Please try again later.');
+        alert(`Failed to send message: ${result.message || 'Unknown error'}`);
       }
     } catch (err) {
       console.error('Error sending message:', err);

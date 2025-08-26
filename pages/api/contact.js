@@ -7,6 +7,20 @@ export default async function handler(req, res) {
 
   const { name, email, message } = req.body;
 
+  // Validate required fields
+  if (!name || !email || !message) {
+    return res.status(400).json({ message: 'Name, email, and message are required' });
+  }
+
+  // Check if environment variables are set
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error('Missing environment variables:', {
+      EMAIL_USER: !!process.env.EMAIL_USER,
+      EMAIL_PASS: !!process.env.EMAIL_PASS
+    });
+    return res.status(500).json({ message: 'Server configuration error' });
+  }
+
   // Create transporter
   const transporter = nodemailer.createTransporter({
     service: 'gmail',
@@ -31,10 +45,15 @@ export default async function handler(req, res) {
   };
 
   try {
+    console.log('Attempting to send email...');
     await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
     res.status(200).json({ message: 'Email sent successfully' });
   } catch (error) {
     console.error('Email error:', error);
-    res.status(500).json({ message: 'Failed to send email' });
+    res.status(500).json({ 
+      message: 'Failed to send email',
+      error: error.message 
+    });
   }
 } 
