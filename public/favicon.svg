@@ -4,7 +4,14 @@
       <stop offset="0%" style="stop-color:#64ffda;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#bb86fc;stop-opacity:1" />
     </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2" stdDeviation="1" flood-color="rgba(0,0,0,0.3)"/>
+    </filter>
   </defs>
+  <!-- Shadow -->
+  <rect width="32" height="32" rx="6" fill="rgba(0,0,0,0.2)" filter="url(#shadow)"/>
+  <!-- Main square with gradient -->
   <rect width="32" height="32" rx="6" fill="url(#gradient)"/>
+  <!-- EG text -->
   <text x="16" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">EG</text>
 </svg>

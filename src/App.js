@@ -62,15 +62,13 @@ function App() {
 
     const formData = new FormData(form.current);
     const data = {
-      user_name: formData.get('user_name'),
-      user_email: formData.get('user_email'),
+      name: formData.get('user_name'),
+      email: formData.get('user_email'),
       message: formData.get('message'),
     };
 
-    console.log('Sending email data:', data);
-
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,19 +76,15 @@ function App() {
         body: JSON.stringify(data),
       });
 
-      console.log('Response status:', response.status);
-      const result = await response.json();
-      console.log('Response result:', result);
-
       if (response.ok) {
-        alert('Message sent!');
+        alert('Message sent successfully! I\'ll get back to you soon.');
         form.current.reset();
       } else {
-        alert('Failed to send message: ' + (result.error || 'Unknown error'));
+        alert('Failed to send message. Please try again later.');
       }
     } catch (err) {
-      console.error('Fetch error:', err);
-      alert('Failed to send message. Please check if the server is running.');
+      console.error('Error sending message:', err);
+      alert('Failed to send message. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
