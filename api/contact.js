@@ -1,11 +1,14 @@
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
+  console.log('Contact API called with method:', req.method);
+  
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
   const { name, email, message } = req.body;
+  console.log('Received data:', { name, email, message });
 
   // Validate required fields
   if (!name || !email || !message) {
@@ -48,7 +51,7 @@ export default async function handler(req, res) {
     console.log('Attempting to send email...');
     await transporter.sendMail(mailOptions);
     console.log('Email sent successfully');
-    res.status(200).json({ message: 'Email sent successfully' });
+    res.status(200).json({ message: 'Message sent successfully! I\'ll get back to you soon.' });
   } catch (error) {
     console.error('Email error:', error);
     res.status(500).json({ 

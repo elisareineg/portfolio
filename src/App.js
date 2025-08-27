@@ -58,6 +58,10 @@ function App() {
       return;
     }
 
+    console.log('=== CONTACT FORM DEBUG ===');
+    console.log('Current timestamp:', new Date().toISOString());
+    console.log('Window location:', window.location.href);
+    
     setIsSubmitting(true);
 
     const formData = new FormData(form.current);
@@ -70,15 +74,30 @@ function App() {
     try {
       console.log('Sending data:', data);
       console.log('Making request to /api/contact...');
-      const response = await fetch('/api/contact', {
+      console.log('Current domain:', window.location.origin);
+      
+      // Test if the API endpoint exists
+      const testResponse = await fetch('/api/test');
+      console.log('Test API response:', testResponse.status);
+      
+      const response = await fetch(`/api/contact?v=${Date.now()}&t=${Date.now()}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache',
         },
         body: JSON.stringify(data),
       });
 
       console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.log('Error response text:', errorText);
+        throw new Error(`HTTP ${response.status}: ${errorText}`);
+      }
+      
       const result = await response.json();
       console.log('Response:', result);
 

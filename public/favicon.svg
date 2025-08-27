@@ -1,10 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#64ffda"/>
-      <stop offset="100%" stop-color="#bb86fc"/>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
     </linearGradient>
+    
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4ade80;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#22d3ee;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect width="32" height="32" rx="6" fill="url(#gradient)"/>
-  <text x="16" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">EG</text>
+  
+  <!-- Background -->
+  <rect width="32" height="32" rx="6" fill="url(#bgGradient)"/>
+  
+  <!-- Subtle tech pattern -->
+  <circle cx="8" cy="8" r="0.5" fill="#4ade80" opacity="0.3"/>
+  <circle cx="24" cy="6" r="0.3" fill="#22d3ee" opacity="0.4"/>
+  <circle cx="26" cy="24" r="0.4" fill="#8b5cf6" opacity="0.3"/>
+  <circle cx="6" cy="26" r="0.3" fill="#3b82f6" opacity="0.4"/>
+  
+  <!-- Letter E -->
+  <path d="M 6 9 L 6 23 L 17 23 L 17 20.5 L 9 20.5 L 9 17.25 L 15.5 17.25 L 15.5 14.75 L 9 14.75 L 9 11.5 L 17 11.5 L 17 9 Z" 
+        fill="url(#textGradient)" 
+        filter="url(#glow)"/>
+  
+  <!-- Letter G -->
+  <path d="M 18.5 16 C 18.5 19.59 21.41 22.5 25 22.5 C 27.43 22.5 29.52 21.24 30.5 19.34 L 28.17 18.16 C 27.64 19.29 26.39 20 25 20 C 22.79 20 21 18.21 21 16 C 21 13.79 22.79 12 25 12 C 26.39 12 27.64 12.71 28.17 13.84 L 30.5 12.66 C 29.52 10.76 27.43 9.5 25 9.5 C 21.41 9.5 18.5 12.41 18.5 16 Z M 25 14.5 L 25 17.5 L 28.5 17.5 L 28.5 15.5 L 27 15.5 L 27 14.5 Z" 
+        fill="url(#textGradient)" 
+        filter="url(#glow)"/>
 </svg>
