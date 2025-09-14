@@ -409,8 +409,8 @@ body {
 
 .skills-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
@@ -418,7 +418,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 1.5rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -432,43 +432,43 @@ body {
 }
 
 .skill-icon {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   background: transparent;
   display: block;
 }
 
 .aws-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 .mysql-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 .js-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin: 0 auto;
   display: block;
 }
 
 .html-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 .css-icon {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 .ts-icon {
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
 }
 
 .skills-bubble-container {
@@ -527,6 +527,14 @@ body {
   font-weight: 600;
   color: #64ffda;
   margin-bottom: 0.5rem;
+}
+
+.experience-date {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #bb86fc;
+  margin-bottom: 0.5rem;
+  font-style: italic;
 }
 
 .experience-company-under-logo a {
