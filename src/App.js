@@ -74,11 +74,16 @@ function App() {
       console.log('Making request to /api/contact...');
       console.log('Current domain:', window.location.origin);
 
+      // Determine API base URL based on environment
+      const apiBaseUrl = window.location.hostname === 'localhost' 
+        ? 'http://localhost:3001' 
+        : '';
+
       // Optional: test endpoint
-      const testResponse = await fetch('http://localhost:3001/api/test');
+      const testResponse = await fetch(`${apiBaseUrl}/api/test`);
       console.log('Test API response:', testResponse.status);
 
-      const response = await fetch(`http://localhost:3001/api/contact?v=${Date.now()}`, {
+      const response = await fetch(`${apiBaseUrl}/api/contact?v=${Date.now()}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
