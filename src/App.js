@@ -54,14 +54,12 @@ function App() {
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    if (isSubmitting) {
-      return;
-    }
+    if (isSubmitting) return;
 
     console.log('=== CONTACT FORM DEBUG ===');
     console.log('Current timestamp:', new Date().toISOString());
     console.log('Window location:', window.location.href);
-    
+
     setIsSubmitting(true);
 
     const formData = new FormData(form.current);
@@ -75,12 +73,12 @@ function App() {
       console.log('Sending data:', data);
       console.log('Making request to /api/contact...');
       console.log('Current domain:', window.location.origin);
-      
-      // Test if the API endpoint exists
-      const testResponse = await fetch('/api/test');
+
+      // Optional: test endpoint
+      const testResponse = await fetch('http://localhost:3001/api/test');
       console.log('Test API response:', testResponse.status);
-      
-      const response = await fetch(`/api/contact?v=${Date.now()}&t=${Date.now()}`, {
+
+      const response = await fetch(`http://localhost:3001/api/contact?v=${Date.now()}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,23 +88,18 @@ function App() {
       });
 
       console.log('Response status:', response.status);
-      console.log('Response headers:', response.headers);
-      
+
       if (!response.ok) {
         const errorText = await response.text();
-        console.log('Error response text:', errorText);
+        console.error('Error response text:', errorText);
         throw new Error(`HTTP ${response.status}: ${errorText}`);
       }
-      
+
       const result = await response.json();
       console.log('Response:', result);
 
-      if (response.ok) {
-        alert('Message sent successfully! I\'ll get back to you soon.');
-        form.current.reset();
-      } else {
-        alert(`Failed to send message: ${result.message || 'Unknown error'}`);
-      }
+      alert('Message sent successfully! I\'ll get back to you soon.');
+      form.current.reset();
     } catch (err) {
       console.error('Error sending message:', err);
       alert('Failed to send message. Please try again later.');
@@ -299,7 +292,7 @@ function App() {
                 </svg>
               </div>
               <div className="skill-item" data-alt="C">
-                <img className="skill-icon c-icon" src="/c-1.svg" alt="C" />
+                <img className="skill-icon" src="/c-1.svg" alt="C" />
               </div>
               <div className="skill-item" data-alt="AWS">
                 <svg className="skill-icon aws-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">

@@ -19,10 +19,10 @@ app.get('/api/test', (req, res) => {
 app.post('/api/contact', async (req, res) => {
   console.log('Received contact form submission:', req.body);
   
-  const { user_name, user_email, message } = req.body;
+  const { name, email, message } = req.body;
   
-  if (!user_name || !user_email || !message) {
-    console.log('Missing required fields:', { user_name, user_email, message });
+  if (!name || !email || !message) {
+    console.log('Missing required fields:', { name, email, message });
     return res.status(400).json({ error: 'Name, email, and message are required.' });
   }
 
@@ -51,9 +51,9 @@ app.post('/api/contact', async (req, res) => {
     const result = await transporter.sendMail({
       from: `Elisa's Portfolio <${process.env.SMTP_USER}>`,
       to: 'elisareine.a.goncalves@gmail.com',
-      subject: `Portfolio Contact from ${user_name}`,
-      replyTo: user_email,
-      text: `Name: ${user_name}\nEmail: ${user_email}\n\n${message}`,
+      subject: `Portfolio Contact from ${name}`,
+      replyTo: email,
+      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
     });
     console.log('Email sent successfully:', result);
     return res.status(200).json({ success: true });

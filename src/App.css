@@ -432,54 +432,50 @@ body {
 }
 
 .skill-icon {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   object-fit: contain;
   background: transparent;
   display: block;
 }
 
 .aws-icon {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
 }
 
 .mysql-icon {
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
 }
 
 .js-icon {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   margin: 0 auto;
   display: block;
 }
 
 .html-icon {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
 }
 
 .css-icon {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
 }
 
 .ts-icon {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 }
 
-.skill-icon.c-icon {
-  width: 65px !important;
-  height: 65px !important;
+.docker-icon {
+  width: 45px;
+  height: 45px;
 }
 
-.skill-icon.docker-icon {
-  width: 65px !important;
-  height: 65px !important;
-}
 
 .skills-bubble-container {
   text-align: center;
