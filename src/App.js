@@ -231,7 +231,7 @@ function App() {
         <div className="stars">{getStars(200)}</div>
         <div className="about-columns">
           <div className="profile-photo-box">
-            <img src="/headshot.jpg" alt="Profile" className="profile-photo-img" />
+            <img src="/IMG_1707 2.jpg" alt="Profile" className="profile-photo-img" />
           </div>
           <div className="about-me-box">
             <h2 className="about-me-header">About Me</h2>
@@ -299,7 +299,7 @@ function App() {
                 </svg>
               </div>
               <div className="skill-item" data-alt="C">
-                <img className="skill-icon" src="/C_logo.png" alt="C" />
+                <img className="skill-icon c-icon" src="/c-1.svg" alt="C" />
               </div>
               <div className="skill-item" data-alt="AWS">
                 <svg className="skill-icon aws-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -368,7 +368,7 @@ function App() {
                 </svg>
               </div>
               <div className="skill-item" data-alt="Docker">
-                <img className="skill-icon" src="/docker-svgrepo-com.svg" alt="Docker" />
+                <img className="skill-icon docker-icon" src="/docker-svgrepo-com.svg" alt="Docker" />
               </div>
             </div>
             <div className="skills-bubble-container">
