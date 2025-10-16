@@ -1,5 +1,6 @@
 import './App.css';
 import { useRef, useState, useEffect } from 'react';
+import { Analytics } from "@vercel/analytics/react";
 
 function getStars(numStars = 400) {
   const stars = [];
@@ -571,6 +572,7 @@ function App() {
           </button>
         </form>
       </section>
+      <Analytics />
     </div>
   );
 }
